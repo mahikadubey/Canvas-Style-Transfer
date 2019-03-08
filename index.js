@@ -20,5 +20,5 @@ function loaded() {
   svg.append("g")
       .attr("class", "brush")
       .call(brush)
-      .call(brush.move, [[307, 167], [611, 539]]);
+      .call(brush.move, [[0, 0], [0, 0]]);
 }
