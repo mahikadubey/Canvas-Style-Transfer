@@ -2,6 +2,19 @@
 <meta charset="utf-8">
 <style>
 
+.button-group button {
+  display: block;
+}
+
+p {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 canvas,
 svg {
   position: absolute;
@@ -10,8 +23,23 @@ svg {
 </style>
 <link rel="shortcut icon" href="">   <!--This removes a favicon error-->
 
+<div class="button-group">
+<button type="button" id="clearBrush" onclick="clearBrush()">Clear Brush</button>
+<button type="button" id="clearImage" onclick="clearImage()">Clear Image</button>
+</div>
 
-<button type="button" id="clear" onclick="clearBrush()">Clear</button>
+<div class="button-brushes">
+<p>Select Brush:</p>
+<button type="button" id="udnieBrush" onclick="udnie()">Udnie</button>
+<button type="button" id="screamBrush" onclick="scream()">Scream</button>
+<button type="button" id="waveBrush" onclick="wave()">Wave</button>
+<button type="button" id="wreckBrush" onclick="wreck()">Wreck</button>
+<button type="button" id="mattaBrush" onclick="matta()">Matta</button>
+<button type="button" id="matildeBrush" onclick="matildePerez()">Matilde Perez</button>
+<button type="button" id="mathuraBrush" onclick="mathura()">Mathura</button>
+<button type="button" id="laMuseBrush" onclick="laMuse()">La Muse</button>
+<button type="button" id="rainPrincessBrush" onclick="rainPrincess()">Rain Princess</button>
+</div>
 
 <canvas id="workspace" width="900" height="600"></canvas>
 <svg width="900" height="600"></svg>

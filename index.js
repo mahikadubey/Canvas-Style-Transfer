@@ -1,3 +1,5 @@
+var currentModel = 'models/udnie';
+
 var canvas = document.querySelector("#workspace"),
     context = canvas.getContext("2d"),
     width = canvas.width, height = canvas.height;
@@ -13,9 +15,73 @@ brush.on('end', brushEnd);
 var brushX = 100;
 var brushY = 100;
 
-let style = ml5.styleTransfer('models/udnie', image, loadedModel),
+let style = ml5.styleTransfer(currentModel, image, loadedModel),
     // preview = document.querySelector("#preview"),
     modelReady = false
+
+
+function udnie() {
+  console.log('Switch to Udnie style');
+  currentModel = 'models/udnie';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+      modelReady = false
+}
+
+function scream() {
+  console.log('Switch to Scream style');
+  currentModel = 'models/scream';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+      modelReady = false
+}
+
+function wave() {
+  console.log('Switch to Wave style');
+  currentModel = 'models/wave';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function wreck() {
+  console.log('Switch to Wreck style');
+  currentModel = 'models/wreck';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function matta() {
+  console.log('Switch to Matta style');
+  currentModel = 'models/matta';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function matildePerez() {
+  console.log('Switch to Matilde Perez style');
+  currentModel = 'models/matilde_perez';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function mathura() {
+  console.log('Switch to Mathura style');
+  currentModel = 'models/mathura';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function laMuse() {
+  console.log('Switch to La Muse style');
+  currentModel = 'models/la_muse';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
+
+function rainPrincess() {
+  console.log('Switch to Rain Princess style');
+  currentModel = 'models/rain_princess';
+  style = ml5.styleTransfer(currentModel, image, loadedModel),
+    modelReady = false
+}
 
 function loadedImage() {
   context.drawImage(image, 0, 0, this.width, this.height,
@@ -25,6 +91,13 @@ function loadedImage() {
       .attr("class", "brush")
       .call(brush)
       .call(brush.move, [[brushX, brushY], [brushX, brushY]]);
+}
+
+function clearImage() {
+  console.log('clear image');
+
+
+  clearBrush();
 }
 
 function clearBrush() {
