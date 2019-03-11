@@ -6,11 +6,12 @@ var image = new Image;
 image.src = "cat-cute.jpg";
 image.onload = loadedImage;
 
-var svg = d3.select("svg"),
-    brush = d3.brush()
+var svg = d3.select("svg");
+var brush = d3.brush();
               // .on('start brush', brushed)
-              .on('end', brushEnd),
-    brushX = 100, brushY = 100 
+brush.on('end', brushEnd);
+var brushX = 100;
+var brushY = 100;
 
 let style = ml5.styleTransfer('models/udnie', image, loadedModel),
     // preview = document.querySelector("#preview"),
@@ -23,8 +24,13 @@ function loadedImage() {
   svg.append("g")
       .attr("class", "brush")
       .call(brush)
-      .call(brush.move, [[brushX, brushY], [brushX+20, brushY+20]]);
+      .call(brush.move, [[brushX, brushY], [brushX, brushY]]);
 }
+
+function clearBrush() {
+  d3.select('.brush').call(brush.move, null);
+}
+
 function loadedModel() {
   // console.log(style)
   // style.video = image // way too big
@@ -36,12 +42,12 @@ async function brushEnd() {
 
   let s = d3.event.selection
   if (!s) return // no selection
-  
+
   let [[x0,y0],[x1,y1]] = s
   if (x0 == x1 || y0 == y1) return // selection of size zero
-  
+
   brushX = x0, brushY = y0
-  let image = context.getImageData(x0, y0, x1-x0, x1-x0) // y1-y0 
+  let image = context.getImageData(x0, y0, x1-x0, x1-x0) // y1-y0
     // FIXME: Rectangular images are returned with correct data,
     //        but transposed width and height. Cludged for now.
 
