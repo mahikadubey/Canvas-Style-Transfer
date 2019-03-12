@@ -5,8 +5,6 @@ var canvas = document.querySelector("#workspace"),
     width = canvas.width, height = canvas.height;
 
 var image = new Image;
-image.src = "cat-cute.jpg";
-image.onload = loadedImage;
 
 var svg = d3.select("svg");
 var brush = d3.brush();
@@ -19,6 +17,31 @@ let style = ml5.styleTransfer(currentModel, image, loadedModel),
     // preview = document.querySelector("#preview"),
     modelReady = false
 
+function uploadImage() {
+  var filename = document.getElementById('selectImage').value;
+  console.log(filename);
+
+  if (filename) {
+    var fr = new FileReader();
+    fr.onload = function() {
+      image.src = fr.result;
+    }
+    fr.readAsDataURL(document.getElementById('selectImage').files[0]);
+  }
+
+  image.onload = loadedImage;
+
+}
+
+function loadedImage() {
+  context.drawImage(image, 0, 0, this.width, this.height,
+                          0, 0, canvas.width, canvas.height);
+  // console.log('drawing image');
+  svg.append("g")
+      .attr("class", "brush")
+      .call(brush)
+      .call(brush.move, [[brushX, brushY], [brushX, brushY]]);
+}
 
 function udnie() {
   console.log('Switch to Udnie style');
@@ -81,16 +104,6 @@ function rainPrincess() {
   currentModel = 'models/rain_princess';
   style = ml5.styleTransfer(currentModel, image, loadedModel),
     modelReady = false
-}
-
-function loadedImage() {
-  context.drawImage(image, 0, 0, this.width, this.height,
-                          0, 0, canvas.width, canvas.height);
-  // console.log('drawing image');
-  svg.append("g")
-      .attr("class", "brush")
-      .call(brush)
-      .call(brush.move, [[brushX, brushY], [brushX, brushY]]);
 }
 
 function clearImage() {
