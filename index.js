@@ -91,7 +91,7 @@ async function brushEnd() {
   if (x0 == x1 || y0 == y1) return // selection of size zero
 
   brushX = x0, brushY = y0
-  let image = master.getImageData(x0, y0, x1-x0, x1-x0) // y1-y0
+  let image = master.getImageData(x0, y0, x1-x0, y1-y0)
     // FIXME: Rectangular images are returned with correct data,
     //        but transposed width and height. Cludged for now.
 
@@ -99,8 +99,8 @@ async function brushEnd() {
 
   // HACK: tf.fromPixels() accepts ImageData, but ml5 itself
   //       fails to pass the argument unless we make it a default.
-  style.video = image
-  style.transfer(showTransfer)
+  // style.video = image
+  style.transfer(image, showTransfer)
 }
 
 function showTransfer(err, img) {
