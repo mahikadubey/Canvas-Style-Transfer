@@ -3,7 +3,6 @@ var currentModel = 'models/udnie';
 var canvas = document.querySelector("#workspace"),
     master = canvas.getContext("2d"),
 
-    width = canvas.width, height = canvas.height,
     workspace = document.querySelector("#preview"),
     context = workspace.getContext("2d")
 
@@ -73,6 +72,15 @@ function clearImage() {
 function clearBrush() {
   brush.call(brushGen.move, null);
 }
+function applyBrush() {
+  let data = workspace.toDataURL();
+  let transfer = new Image()
+  transfer.src = data
+  transfer.onload = pasteImage
+}
+function pasteImage() {
+  master.drawImage(this, 0, 0)
+}
 
 function setStyle(str) {
   if (str == 'clear') {
@@ -103,7 +111,7 @@ async function brushEnd() {
   if (x0 == x1 || y0 == y1) return // selection of size zero
 
   brushX = x0, brushY = y0
-  let image = master.getImageData(x0, y0, x1-x0, y1-y0)
+  let data = master.getImageData(x0, y0, x1-x0, y1-y0)
     // FIXME: Rectangular images are returned with correct data,
     //        but transposed width and height. Cludged for now.
 
@@ -114,9 +122,9 @@ async function brushEnd() {
   // style.video = image
 
   if (style)
-    style.transfer(image, showTransfer)
+    style.transfer(data, showTransfer)
   else
-    context.putImageData(image, brushX, brushY)
+    context.putImageData(data, brushX, brushY)
 }
 
 function showTransfer(err, img) {
