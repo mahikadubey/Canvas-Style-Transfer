@@ -3,7 +3,7 @@
 <style>
 
 .button-group button {
-  display: block;
+  display: inline-block;
 }
 
 p {
@@ -24,28 +24,19 @@ svg {
 <link rel="shortcut icon" href="">   <!--This removes a favicon error-->
 
 <div class="button-group">
-<input type="file" id="selectImage"></input>
-<button type="button" id="uploadImage" onclick="uploadImage()">Upload Image</button>
+<input type="file" id="selectImage" onchange="uploadImage()"></input>
 <button type="button" id="clearBrush" onclick="clearBrush()">Clear Brush</button>
 <button type="button" id="clearImage" onclick="clearImage()">Clear Image</button>
 </div>
 
-<div class="button-brushes">
+<div class="button-group" id="brushes">
 <p>Select Brush:</p>
-<button type="button" id="udnieBrush" onclick="udnie()">Udnie</button>
-<button type="button" id="screamBrush" onclick="scream()">Scream</button>
-<button type="button" id="waveBrush" onclick="wave()">Wave</button>
-<button type="button" id="wreckBrush" onclick="wreck()">Wreck</button>
-<button type="button" id="mattaBrush" onclick="matta()">Matta</button>
-<button type="button" id="matildeBrush" onclick="matildePerez()">Matilde Perez</button>
-<button type="button" id="mathuraBrush" onclick="mathura()">Mathura</button>
-<button type="button" id="laMuseBrush" onclick="laMuse()">La Muse</button>
-<button type="button" id="rainPrincessBrush" onclick="rainPrincess()">Rain Princess</button>
 </div>
 
+<!-- TODO: width/height constants -->
 <canvas id="workspace" width="900" height="600"></canvas>
+<canvas id="preview" width="900" height="600"></canvas>
 <svg width="900" height="600"></svg>
-<canvas id="preview"></canvas>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
