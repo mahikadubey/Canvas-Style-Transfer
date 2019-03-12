@@ -12,9 +12,10 @@ image.src = "cat-cute.jpg"
 image.onload = loadedImage
 
 var svg = d3.select("svg");
-var brush = d3.brush()
+var brushGen = d3.brush()
               .on('start brush', brushed)
               .on('end', brushEnd);
+var brush = undefined;
 var brushX = 100;
 var brushY = 100;
 
@@ -24,7 +25,7 @@ let style = ml5.styleTransfer(currentModel, image, loadedModel),
 
 let STYLES = ['udnie', 'scream', 'wave',
               'wreck', 'matta', 'mathura',
-              'la_muse'] // 'matilde_perez', 'rain_princess'
+              'la_muse', 'clear'] // 'matilde_perez', 'rain_princess'
 
 d3.select('#brushes')
   .selectAll('button')
@@ -52,10 +53,13 @@ function loadedImage() {
   master.drawImage(image, 0, 0, this.width, this.height)
                           // 0, 0, canvas.width, canvas.height);
   // console.log('drawing image');
-  svg.append("g")
+  
+  if (brush)
+    brush.call(brushGen.move, null)
+  brush = svg.append("g")
       .attr("class", "brush")
-      .call(brush)
-      .call(brush.move, [[brushX, brushY], [brushX, brushY]]);
+      .call(brushGen)
+      .call(brushGen.move, [[brushX, brushY], [brushX, brushY]]);
 }
 function clearImage() {
   // WIP
@@ -63,10 +67,14 @@ function clearImage() {
   context.clearRect(0, 0, canvas.width, canvas.height)
 }
 function clearBrush() {
-  d3.select('.brush').call(brush.move, null);
+  brush.call(brushGen.move, null);
 }
 
 function setStyle(str) {
+  if (str == 'clear') {
+    style = undefined
+    return
+  }
   currentModel = 'models/'+str
   style = ml5.styleTransfer(currentModel, image, loadedModel),
   modelReady = false
@@ -100,7 +108,11 @@ async function brushEnd() {
   // HACK: tf.fromPixels() accepts ImageData, but ml5 itself
   //       fails to pass the argument unless we make it a default.
   // style.video = image
-  style.transfer(image, showTransfer)
+
+  if (style)
+    style.transfer(image, showTransfer)
+  else
+    context.putImageData(image, brushX, brushY)
 }
 
 function showTransfer(err, img) {
