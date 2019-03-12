@@ -4,8 +4,8 @@ var canvas = document.querySelector("#workspace"),
     master = canvas.getContext("2d"),
 
     width = canvas.width, height = canvas.height,
-    context = document.querySelector("#preview")
-                      .getContext("2d")
+    workspace = document.querySelector("#preview"),
+    context = workspace.getContext("2d")
 
 var image = new Image;
 image.src = "cat-cute.jpg"
@@ -37,7 +37,7 @@ d3.select('#brushes')
 
 function uploadImage() {
   var filename = document.getElementById('selectImage').value;
-  console.log(filename);
+  // console.log(filename);
 
   if (filename) {
     var fr = new FileReader();
@@ -50,6 +50,10 @@ function uploadImage() {
 }
 function loadedImage() {
   // FIXME: reshape canvas to upload
+  let w = image.width, h = image.height
+  canvas.width = w; workspace.width = w; svg.attr('width', w)
+  canvas.height = h; workspace.height = h; svg.attr('height', h)
+
   master.drawImage(image, 0, 0, this.width, this.height)
                           // 0, 0, canvas.width, canvas.height);
   // console.log('drawing image');
