@@ -31,6 +31,10 @@ The Patch Pattern application that uses real time transfer of selected sections 
 Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be instantly 
 
 ### Results - Images and Video
+Below is a series of examples showing different multi-styled patch paintings on the image of the cute cat. We also have attached a video demonstrating the usage of the patch painting application. 
+
+![](screenshot-patch-paintings.png)
+
 
 ### Implementation Details
 
@@ -42,4 +46,4 @@ Select a brush to switch to the relevant style, and use the mouse to click and d
 ### Resources 
 - ml5.js - https://ml5js.org/
 - D3.js - https://d3js.org/
-- Default Cat Image from https://www.tastefulspace.com/blog/2018/06/11/the-top-3-short-haired-cat-breeds-to-own/
+- Default Cat Image from https://www.pexels.com/photo/cat-whiskers-kitty-tabby-20787/
