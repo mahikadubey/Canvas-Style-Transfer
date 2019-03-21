@@ -9,9 +9,13 @@ The Magic Marker application allows brush interactions so that users can 'paint'
 Select a brush to switch to the relevant style, and wait a few seconds for the cursor to change from an arrow to a '+' shape. This indicates that the brush is ready to be used for applying style to the image. Rectangle shaped selections can be made on the canvas, and dragged around or reshaped as needed. When happy with the painted section, click the 'Apply Brush' button to fix the changes to the image. Then, a new brush may be selected, or a new section may be painted over with the existing brush. Use the 'Clear Brush' button to remove any un-applied 'paint.' 
 
 ### Results - Images and Video Demo   
-Below is a series of examples showing different multi-styled paintings of the cute cat image. We also have attached a video demonstrating the usage of the magic marker implementation. 
+Below is a video/gif demonstrating usage of the magic marker implementation, as well as image results of other paintings created using the application.    
+
+![](screenvideo-magic-marker.mov.gif)
 
 ![](screenshot-magic-marker-paintings.png)
+
+
 
 ### Implementation Details
 This application uses scaled down images to avoid crashing the browser (images smaller than 2400 by 2400 pixels work best as we scale down by a factor of 3). Upon selection of a brush, a hidden canvas is processed using the entire image as the content for the selected style. Brush interactions effectively remove pixels from the top canvas to reveal the transformed image content in the 'painted' areas, such that the top canvas layer acts like a mask to the styled image on the canvas below. The 'Apply Brush' button combines the result of the masked style canvas image, and 'flattens' the canvases to reset the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the top canvas layer by reversing the pixel removal. 
@@ -31,11 +35,12 @@ The Patch Pattern application that uses real time transfer of selected sections 
 Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be replaced with a stylized version of the original content using the brush style selected by the user. Rectangular brush selections can be moved around the canvas, but the content will only be sent to the style transfer library on a mouse up event. 'Apply Brush' sticks the changes to the canvas, 'Clear Brush' removes the brush box from the canvas area, and 'Clear Image' removes any un-applied changes from the preview layer.
 
 ### Results - Images and Video
-Below is a series of examples showing different multi-styled patch paintings on the image of the cute cat. We also have attached a video demonstrating the usage of the patch painting application. 
+Below is a video/gif demonstrating the usage of the patch painting application, along with a set of example results of multi-style patch paintings.   
+
+![](screenvideo-patch-painting.mov.gif)
 
 ![](screenshot-patch-paintings.png)
 
-![](screenvideo-patch-painting.mov.gif)
 
 ### Implementation Details
 This application uses brush selections to send portions of an image to ml5 for style transfer to be completed piece-wise across the canvas. A preview canvas is layered on top of the image canvas to hold pixel data for applied style patches. The 'Apply Brush' button flattens these changes and sticks them to the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the preview canvas layer by clearing the changes. 
