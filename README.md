@@ -4,7 +4,7 @@ Brush-based interactive canvas for custom style transfer. We have two different 
 Researchers: Mahika Dubey & Jasmine Otto - UCSC Creative Coding   
 
 ## Magic Marker  
-The Magic Marker application allows brush interactions so that users can 'paint' on different styles through intuitive selection and dragging. The image below shows the intial state of the application upon opening. Our default image of a cat is scaled to ensure that browser is able to handle style transformation of the entire image.
+The Magic Marker application allows brush interactions so that users can 'paint' on different styles through intuitive selection and dragging. The image below shows the initial state of the application upon opening. Our default image of a cat is scaled to ensure that browser is able to handle style transformation of the entire image.
 
 ![](screenshot-magic-marker.png)
 
