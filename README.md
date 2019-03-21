@@ -43,7 +43,7 @@ Below is a series of examples showing different multi-styled patch paintings on 
 - Run a local server using `python -m http.server` (if using Python 2, use `python -m SimpleHTTPServer` instead)
 - Open http://localhost:8000 in a browser 
 
-### Resources 
+## Resources 
 - ml5.js - https://ml5js.org/
 - D3.js - https://d3js.org/
 - Default Cat Image from https://www.pexels.com/photo/cat-whiskers-kitty-tabby-20787/
