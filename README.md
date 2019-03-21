@@ -28,7 +28,7 @@ The Patch Pattern application that uses real time transfer of selected sections 
 
 ![](screenshot-patch-patterning.png)
 
-Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be instantly 
+Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be replaced with a stylized version of the original content using the brush style selected by the user. Rectangular brush selections can be moved around the canvas, but the content will only be sent to the style transfer library on a mouse up event. 'Apply Brush' sticks the changes to the canvas, 'Clear Brush' removes the brush box from the canvas area, and 'Clear Image' removes any un-applied changes from the preview layer.
 
 ### Results - Images and Video
 Below is a series of examples showing different multi-styled patch paintings on the image of the cute cat. We also have attached a video demonstrating the usage of the patch painting application. 
@@ -37,6 +37,7 @@ Below is a series of examples showing different multi-styled patch paintings on 
 
 
 ### Implementation Details
+This application uses brush selections to send portions of an image to ml5 for style transfer to be completed piece-wise across the canvas. A preview canvas is layered on top of the image canvas to hold pixel data for applied style patches. The 'Apply Brush' button flattens these changes and sticks them to the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the preview canvas layer by clearing the changes. 
 
 ### How to run
 - Move into the `Patch-Patterning` directory
