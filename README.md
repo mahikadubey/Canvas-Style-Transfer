@@ -48,7 +48,7 @@ Below is a video/gif demonstrating the usage of the patch painting application, 
 This application uses brush selections to send portions of an image to ml5 for style transfer to be completed piece-wise across the canvas. A preview canvas is layered on top of the image canvas to hold pixel data for applied style patches. The 'Apply Brush' button flattens these changes and sticks them to the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the preview canvas layer by clearing the changes. 
 
 ### How to run
-- Move into the `Patch-Patterning` directory
+- Move into the `Compositing-Stamps` directory
 - Run a local server using `python -m http.server` (if using Python 2, use `python -m SimpleHTTPServer` instead)
 - Open http://localhost:8000 in a browser 
 
