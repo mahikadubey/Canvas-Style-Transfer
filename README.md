@@ -1,6 +1,8 @@
 # Canvas Style Transfer
 Brush-based interactive canvas for custom style transfer. We have two different modes of the application that can be loaded from each folder in this repository. Our style transfer applications use pre-trained models from ml5.js and brush interactions supported by D3 in novel ways, giving users a new way to creatively interact with images of their choice, and eliciting new thoughts on the process of art creation.
 
+Mahika Dubey & Jasmine Otto - UCSC Creative Coding   
+
 ## Magic Marker  
 The Magic Marker application allows brush interactions so that users can 'paint' on different styles through intuitive selection and dragging. The image below shows the intial state of the application upon opening. Our default image of a cat is scaled to ensure that browser is able to handle style transformation of the entire image.
 
