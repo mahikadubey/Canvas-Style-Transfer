@@ -28,6 +28,8 @@ The Patch Pattern application that uses real time transfer of selected sections 
 
 ![](screenshot-patch-patterning.png)
 
+Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be instantly 
+
 ### Results - Images and Video
 
 ### Implementation Details
@@ -36,3 +38,8 @@ The Patch Pattern application that uses real time transfer of selected sections 
 - Move into the `Patch-Patterning` directory
 - Run a local server using `python -m http.server` (if using Python 2, use `python -m SimpleHTTPServer` instead)
 - Open http://localhost:8000 in a browser 
+
+### Resources 
+- ml5.js - https://ml5js.org/
+- D3.js - https://d3js.org/
+- Default Cat Image from https://www.tastefulspace.com/blog/2018/06/11/the-top-3-short-haired-cat-breeds-to-own/
