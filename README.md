@@ -1,4 +1,4 @@
-# Canvas-Style-Transfer
+# Canvas Style Transfer
 Brush-based interactive canvas for custom style transfer. We have two different modes of the application that can be loaded from each folder in this repository. Our style transfer applications use pre-trained models from ml5.js and brush interactions supported by D3 in novel ways, giving users a new way to creatively interact with images of their choice, and eliciting new thoughts on the process of art creation.
 
 ## Magic Marker  
@@ -42,6 +42,7 @@ Below is a series of examples showing different multi-styled patch paintings on 
 - Move into the `Patch-Patterning` directory
 - Run a local server using `python -m http.server` (if using Python 2, use `python -m SimpleHTTPServer` instead)
 - Open http://localhost:8000 in a browser 
+
 
 ## Resources 
 - ml5.js - https://ml5js.org/
