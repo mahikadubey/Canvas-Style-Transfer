@@ -52,7 +52,7 @@ function uploadImage() {
 }
 function loadedImage() {
   // TODO: tune inference
-  let scalefactor = image.width*image.height > 800*800 ? 3 : 1 
+  let scalefactor = image.width*image.height > 800*800 ? 3 : 1
 
   let w = image.width/scalefactor, h = image.height/scalefactor
   canvas.width = w; workspace.width = w; background.width = w; svg.attr('width', w);
@@ -92,7 +92,7 @@ function applyBrush() {
 }
 function pasteImage() {
   master.drawImage(this, 0, 0)
-  
+
   let data2 = workspace.toDataURL();
   let transfer2 = new Image();
   transfer2.src = data2;
