@@ -13,9 +13,6 @@ var image = new Image;
 image.src = "cat-cute.jpg"
 image.onload = loadedImage
 
-var scalefactor = 3;
-var scaled = false;
-
 var svg = d3.select("svg");
 var brushGen = d3.brush()
               .on('start brush', brushed);
@@ -24,7 +21,7 @@ var brush = undefined;
 var brushX = 100;
 var brushY = 100;
 
-let style = ml5.styleTransfer(currentModel, image, loadedModel),
+let style = undefined, // ml5.styleTransfer(currentModel, image, loadedModel),
     // preview = document.querySelector("#preview"),
     modelReady = false
 
@@ -54,16 +51,13 @@ function uploadImage() {
   image.onload = loadedImage;
 }
 function loadedImage() {
-  // FIXME: reshape canvas to upload
-  if (!scaled) {
-    scalefactor = 3;
-    scaled = true;
-  } else {
-    scalefactor = 1;
-  }
+  // TODO: tune inference
+  let scalefactor = image.width*image.height > 800*800 ? 3 : 1 
+
   let w = image.width/scalefactor, h = image.height/scalefactor
   canvas.width = w; workspace.width = w; background.width = w; svg.attr('width', w);
   canvas.height = h; workspace.height = h; background.height = h; svg.attr('height', h)
+
   master.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor);
   context.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor);
 
@@ -77,35 +71,36 @@ function loadedImage() {
       .call(brushGen)
       .call(brushGen.move, [[brushX, brushY], [brushX, brushY]]);
 }
-function clearImage() {
-  // WIP
-  clearBrush();
+function clearBrush() {
+  brush.call(brushGen.move, null);
+
   image = new Image();
   image.src = canvas.toDataURL();
   image.onload = loadedImage;
   //context.clearRect(0, 0, canvas.width, canvas.height);
   //context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
+  if (style)
+    style.transfer(data, showTransferBG)
 }
-function clearBrush() {
-  brush.call(brushGen.move, null);
-}
+
 function applyBrush() {
   let data = background.toDataURL();
   let transfer = new Image()
   transfer.src = data
-  transfer.onload = pasteImage
-
-  let data2 = workspace.toDataURL();
-  let transfer2 = new Image();
-  transfer2.src = data2;
-  transfer2.onload = pasteMask
+  transfer.onload = pasteImage // await style
 }
 function pasteImage() {
   master.drawImage(this, 0, 0)
+  
+  let data2 = workspace.toDataURL();
+  let transfer2 = new Image();
+  transfer2.src = data2;
+  transfer2.onload = pasteMask // await mask
 }
 function pasteMask() {
   master.drawImage(this, 0, 0)
+  clearBrush()
 }
 
 function setStyle(str) {
@@ -149,12 +144,17 @@ function showTransferBG(err, img) {
 }
 
 function brushed() {
-   //brushEnd();
-   let s = d3.event.selection
-   if (!s) return // no selection
+  //brushEnd();
+  let s = d3.event.selection
+  if (!s) return // no selection
 
-   let [[x0,y0],[x1,y1]] = s
-   context.clearRect(x0, y0, x1-x0, y1-y0);
+  let [[x0,y0],[x1,y1]] = s
+  if (style)
+    context.clearRect(x0, y0, x1-x0, y1-y0);
+  else {
+    let data = master.getImageData(x0, y0, x1-x0, y1-y0)
+    context.putImageData(data, x0, y0)
+  }
 }
 
 async function brushEnd() {
