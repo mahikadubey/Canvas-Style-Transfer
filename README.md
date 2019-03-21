@@ -35,6 +35,7 @@ Below is a series of examples showing different multi-styled patch paintings on 
 
 ![](screenshot-patch-paintings.png)
 
+![](screenvideo-patch-painting.mov.gif)
 
 ### Implementation Details
 This application uses brush selections to send portions of an image to ml5 for style transfer to be completed piece-wise across the canvas. A preview canvas is layered on top of the image canvas to hold pixel data for applied style patches. The 'Apply Brush' button flattens these changes and sticks them to the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the preview canvas layer by clearing the changes. 
