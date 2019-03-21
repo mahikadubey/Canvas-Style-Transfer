@@ -6,16 +6,16 @@ Researchers: Mahika Dubey & Jasmine Otto - UCSC Creative Coding
 ## Magic Marker  
 The Magic Marker application allows brush interactions so that users can 'paint' on different styles through intuitive selection and dragging. The image below shows the initial state of the application upon opening. Our default image of a cat is scaled to ensure that browser is able to handle style transformation of the entire image.
 
-![](screenshot-magic-marker.png)
+![](Results-Media/screenshot-magic-marker.png)
 
 Select a brush to switch to the relevant style, and wait a few seconds for the cursor to change from an arrow to a '+' shape. This indicates that the brush is ready to be used for applying style to the image. Rectangle shaped selections can be made on the canvas, and dragged around or reshaped as needed. When happy with the painted section, click the 'Apply Brush' button to fix the changes to the image. Then, a new brush may be selected, or a new section may be painted over with the existing brush. Use the 'Clear Brush' button to remove any un-applied 'paint.' 
 
 ### Results - Images and Video Demo   
 Below is a video/gif demonstrating usage of the magic marker implementation, as well as image results of other paintings created using the application.    
 
-![](screenvideo-magic-marker.mov.gif)
+![](Results-Media/screenvideo-magic-marker.mov.gif)
 
-![](screenshot-magic-marker-paintings.png)
+![](Results-Media/screenshot-magic-marker-paintings.png)
 
 
 
@@ -32,16 +32,16 @@ This application uses scaled down images to avoid crashing the browser (images s
 ## Compositing Stamps
 The Compositing Stamps application uses real time transfer of selected sections of an image to layer on patches of style to create interesting works of art resembling tiled mosaics or collages. Users can select different rectangular sections of their image of choice using a brush to get immediate transformation of content based on the selected style. The image below shoes the intial state of the application when opened. Due to browser limitations, it is recommended to avoid creating brush selections larger than 800x800 pixels. 
 
-![](screenshot-patch-patterning.png)
+![](Results-Media/screenshot-patch-patterning.png)
 
 Select a brush to switch to the relevant style, and use the mouse to click and drag to select a rectangular shape. This patch will be replaced with a stylized version of the original content using the brush style selected by the user. Rectangular brush selections can be moved around the canvas, but the content will only be sent to the style transfer library on a mouse up event. 'Apply Brush' sticks the changes to the canvas, 'Clear Brush' removes the brush box from the canvas area, and 'Clear Image' removes any un-applied changes from the preview layer.
 
 ### Results - Images and Video
 Below is a video/gif demonstrating the usage of the patch painting application, along with a set of example results of multi-style patch paintings.   
 
-![](screenvideo-patch-painting.mov.gif)
+![](Results-Media/screenvideo-patch-painting.mov.gif)
 
-![](screenshot-patch-paintings.png)
+![](Results-Media/screenshot-patch-paintings.png)
 
 
 ### Implementation Details
