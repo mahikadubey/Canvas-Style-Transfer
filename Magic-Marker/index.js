@@ -28,7 +28,7 @@ let style = undefined, // ml5.styleTransfer(currentModel, image, loadedModel),
 let STYLES = ['udnie', 'scream', 'wave',
               'wreck', 'matta', 'mathura',
               'la_muse', 'bruises', 'hennessy',
-              'hennessy_zoom', 'clear'] // 'matilde_perez', 'rain_princess'
+              'hennessy_zoom', 'minard_immigration', 'clear'] // 'matilde_perez', 'rain_princess'
 
 d3.select('#brushes')
   .selectAll('button')
