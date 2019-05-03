@@ -24,7 +24,10 @@ let style = ml5.styleTransfer(currentModel, image, loadedModel),
 
 let STYLES = ['udnie', 'scream', 'wave',
               'wreck', 'matta', 'mathura',
-              'la_muse', 'clear'] // 'matilde_perez', 'rain_princess'
+              'la_muse', 'bruises', 'hennessy',
+              'hennessy_zoom', 'minard_immigration',
+              'tufte_flatland', 'scrapbook1_glupi', 'clear'] // 'matilde_perez', 'rain_princess'
+
 
 d3.select('#brushes')
   .selectAll('button')
@@ -56,7 +59,7 @@ function loadedImage() {
   master.drawImage(image, 0, 0, this.width, this.height)
                           // 0, 0, canvas.width, canvas.height);
   // console.log('drawing image');
-  
+
   if (brush)
     brush.call(brushGen.move, null)
   brush = svg.append("g")
