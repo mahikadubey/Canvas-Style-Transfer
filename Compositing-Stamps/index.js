@@ -26,7 +26,8 @@ let STYLES = ['udnie', 'scream', 'wave',
               'wreck', 'matta', 'mathura',
               'la_muse', 'bruises', 'hennessy',
               'hennessy_zoom', 'minard_immigration',
-              'tufte_flatland', 'scrapbook1_glupi', 'clear'] // 'matilde_perez', 'rain_princess'
+              'tufte_flatland', 'scrapbook1_glupi',
+              'scrapbook2_glupi', 'clear'] // 'matilde_perez', 'rain_princess'
 
 
 d3.select('#brushes')
