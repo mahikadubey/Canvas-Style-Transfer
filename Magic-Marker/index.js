@@ -10,7 +10,7 @@ var canvas = document.querySelector("#workspace"),
     bgcontext = background.getContext("2d")
 
 var image = new Image;
-image.src = "cat-cute.jpg"
+image.src = "glupi-default.jpg"
 image.onload = loadedImage
 
 var svg = d3.select("svg");
@@ -25,12 +25,14 @@ let style = undefined, // ml5.styleTransfer(currentModel, image, loadedModel),
     // preview = document.querySelector("#preview"),
     modelReady = false
 
-let STYLES = ['udnie', 'scream', 'wave',
+/*let STYLES = ['udnie', 'scream', 'wave',
               'wreck', 'matta', 'mathura',
               'la_muse', 'bruises', 'hennessy',
               'hennessy_zoom', 'minard_immigration',
               'tufte_flatland', 'scrapbook1_glupi',
-              'scrapbook2_glupi', 'clear'] // 'matilde_perez', 'rain_princess'
+              'scrapbook2_glupi', 'clear'] // 'matilde_perez', 'rain_princess'*/
+
+let STYLES = ['bruises', 'hennessy_zoom', 'minard_immigration', 'tufte_flatland', 'scrapbook1_glupi', 'scrapbook2_glupi', 'moma_glupi', 'clear']
 
 d3.select('#brushes')
   .selectAll('button')
