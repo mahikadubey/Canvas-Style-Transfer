@@ -4,6 +4,7 @@
 
 .button-group button {
   display: inline-block;
+  margin-bottom: 30px;
 }
 
 p {
@@ -13,33 +14,44 @@ p {
   font-variant: normal;
   font-weight: 400;
   line-height: 20px;
+  text-align: center;
+}
+
+#drawingboard {
+  text-align: center;
 }
 
 canvas,
 svg {
+  display: inline-block;
   position: absolute;
+  left: 475px;
 }
 
 </style>
 
 <link rel="shortcut icon" href="">   <!--This removes a favicon error-->
 
-<div class="button-group">
+<p>Data Brush: Interactive Style Transfer for Data Art</p>
+
+<div class="button-group" style="text-align: center;">
 <input type="file" id="selectImage" onchange="uploadImage()"></input>
 <button type="button" id="clearBrush" onclick="clearBrush()">Clear Brush</button>
 <button type="button" id="applyBrush" onclick="applyBrush()">Apply Brush</button>
 </div>
 
-<div class="button-group" id="brushes">
+<div class="button-group" id="brushes" style="text-align: center;">
 <p>Load Brush:</p>
 </div>
 
 <!-- TODO: width/height constants -->
-<canvas id="background" width="450" height="300" style="position: absolute; z-index: -1;"></canvas>
-<canvas id="workspace" width="450" height="300" style="position: absolute; z-index: -2;"></canvas>
-<canvas id="preview" width="450" height="300" style="position: absolute; z-index: 0;"></canvas>
+<div id="drawingboard">
+<canvas id="background" width="450" height="300" style="z-index: -1;"></canvas>
+<canvas id="workspace" width="450" height="300" style="z-index: -2;"></canvas>
+<canvas id="preview" width="450" height="300" style="z-index: 0;"></canvas>
 
 <svg width="900" height="600"></svg>
+</div>
 
 <script src="./lib/d3.v5.min.js"></script>
 <script src="./lib/ml5.min.js"></script>
