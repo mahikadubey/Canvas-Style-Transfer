@@ -44,11 +44,30 @@ svg {
 <p>Load Brush:</p>
 </div>
 
+<div class="button-group" id="brushes-preloaded" style="text-align; center;">
+<p>Use Brush:<p>
+<button type="button" id="brush_bruises" onclick="useBruises()">Bruises</button>
+<button type="button" id="brush_hennessy" onclick="useHennessy()">Hennessy</button>
+<button type="button" id="brush_immigration" onclick="useImmigration()">Immigration</button>
+<button type="button" id="brush_flatland" onclick="useFlatland()">Flatland</button>
+<button type="button" id="brush_scrapbook1" onclick="useScrapbook1()">Scrapbook1</button>
+<button type="button" id="brush_scrapbook2" onclick="useScrapbook2()">Scrapbook2</button>
+<button type="button" id="brush_moma" onclick="useMoma()">Moma</button>
+</div>
+
 <!-- TODO: width/height constants -->
 <div id="drawingboard">
 <canvas id="background" width="450" height="300" style="z-index: -1;"></canvas>
 <canvas id="workspace" width="450" height="300" style="z-index: -2;"></canvas>
 <canvas id="preview" width="450" height="300" style="z-index: 0;"></canvas>
+
+<canvas id="preload_bruises" width="450" height="300" style="z-index: -3;"></canvas>
+<canvas id="preload_hennessy_zoom" width="450" height="300" style="z-index: -4;"></canvas>
+<canvas id="preload_minard_immigration" width="450" height="300" style="z-index: -5;"></canvas>
+<canvas id="preload_tufte_flatland" width="450" height="300" style="z-index: -6;"></canvas>
+<canvas id="preload_scrapbook1_glupi" width="450" height="300" style="z-index: -7;"></canvas>
+<canvas id="preload_scrapbook2_glupi" width="450" height="300" style="z-index: -8;"></canvas>
+<canvas id="preload_moma_glupi" width="450" height="300" style="z-index: -9;"></canvas>
 
 <svg width="900" height="600"></svg>
 </div>
