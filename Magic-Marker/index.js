@@ -28,7 +28,10 @@ var canvas = document.querySelector("#workspace"),
     preload_scrapbook2_glupi = preload_s2g.getContext("2d"),
 
     preload_mg = document.querySelector("#preload_moma_glupi"),
-    preload_moma_glupi = preload_mg.getContext("2d")
+    preload_moma_glupi = preload_mg.getContext("2d"),
+
+    preload_mc = document.querySelector("#preload_minard_cattle"),
+    preload_minard_cattle = preload_mc.getContext("2d")
 
 
 var image = new Image;
@@ -54,7 +57,7 @@ let style = undefined, // ml5.styleTransfer(currentModel, image, loadedModel),
               'tufte_flatland', 'scrapbook1_glupi',
               'scrapbook2_glupi', 'clear'] // 'matilde_perez', 'rain_princess'*/
 
-let STYLES = ['bruises', 'hennessy_zoom', 'minard_immigration', 'tufte_flatland', 'scrapbook1_glupi', 'scrapbook2_glupi', 'moma_glupi', 'clear']
+let STYLES = ['bruises', 'hennessy_zoom', 'minard_immigration', 'tufte_flatland', 'scrapbook1_glupi', 'scrapbook2_glupi', 'moma_glupi', 'minard_cattle','clear']
 
 d3.select('#brushes')
   .selectAll('button')
@@ -96,6 +99,7 @@ function loadedImageFirst() {
   preload_s1g.width = w;
   preload_s2g.width = w;
   preload_mg.width = w;
+  preload_mc.width = w;
   svg.attr('width', w);
 
   canvas.height = h;
@@ -108,6 +112,7 @@ function loadedImageFirst() {
   preload_s1g.height = h;
   preload_s2g.height = h;
   preload_mg.height = h;
+  preload_mc.height = h;
   svg.attr('height', h)
 
   master.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor);
@@ -119,6 +124,7 @@ function loadedImageFirst() {
   preload_scrapbook1_glupi.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor)
   preload_scrapbook2_glupi.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor)
   preload_moma_glupi.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor)
+  preload_minard_cattle.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor)
 
   context.globalCompositeOperation = "source-out";
   style0 = ml5.styleTransfer('models/bruises', image, loadModelBruises)
@@ -128,6 +134,7 @@ function loadedImageFirst() {
   style4 = ml5.styleTransfer('models/scrapbook1_glupi', image, loadModelScrapbook1)
   style5 = ml5.styleTransfer('models/scrapbook2_glupi', image, loadModelScrapbook2)
   style6 = ml5.styleTransfer('models/moma_glupi', image, loadModelMomaGlupi)
+  style7 = ml5.styleTransfer('models/minard_cattle', image, loadModelMinardCattle)
 
   console.log('got style')
   modelReady = false;
@@ -223,6 +230,16 @@ function showTransferMomaGlupi(err, img) {
   console.log("loaded moma GLupi")
 }
 
+function loadModelMinardCattle() {
+  modelReady = true;
+  var data = master.getImageData(0, 0, canvas.width, canvas.height)
+  style7.transfer(data, showTransferMinardCattle)
+}
+
+function showTransferMinardCattle(err, img) {
+  preload_minard_cattle.drawImage(img, 0, 0)
+  console.log("loaded minard cattle")
+}
 
 
 
@@ -261,6 +278,10 @@ function useScrapbook2() {
 function useMoma() {
   //applyBrush();
   bgcontext.drawImage(preload_moma_glupi.canvas, 0, 0);
+}
+
+function useCattle() {
+  bgcontext.drawImage(preload_minard_cattle.canvas, 0, 0);
 }
 
 
