@@ -1,4 +1,4 @@
-var currentModel = 'models/udnie';
+var currentModel = '../models/scrapbook2_glupi';
 
 var canvas = document.querySelector("#workspace"),
     master = canvas.getContext("2d"),
@@ -22,12 +22,10 @@ let style = ml5.styleTransfer(currentModel, image, loadedModel),
     // preview = document.querySelector("#preview"),
     modelReady = false
 
-let STYLES = ['udnie', 'scream', 'wave',
-              'wreck', 'matta', 'mathura',
-              'la_muse', 'bruises', 'hennessy',
-              'hennessy_zoom', 'minard_immigration',
-              'tufte_flatland', 'scrapbook1_glupi',
-              'scrapbook2_glupi', 'clear'] // 'matilde_perez', 'rain_princess'
+let STYLES = ['bruises', 'hennessy_zoom',
+              'minard_immigration', 'minard_cattle', 'tufte_flatland',
+              'scrapbook1_glupi', 'scrapbook2_glupi', 'moma_glupi',
+              'clear']
 
 
 d3.select('#brushes')
@@ -91,7 +89,7 @@ function setStyle(str) {
     style = undefined
     return
   }
-  currentModel = 'models/'+str
+  currentModel = '../models/'+str
   style = ml5.styleTransfer(currentModel, image, loadedModel),
   modelReady = false
 }

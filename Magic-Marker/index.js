@@ -1,4 +1,4 @@
-var currentModel = 'models/udnie';
+var currentModel = '../models/udnie';
 
 var canvas = document.querySelector("#workspace"),
     master = canvas.getContext("2d"),
@@ -127,14 +127,14 @@ function loadedImageFirst() {
   preload_minard_cattle.drawImage(image, 0, 0, this.width/scalefactor, this.height/scalefactor)
 
   context.globalCompositeOperation = "source-out";
-  style0 = ml5.styleTransfer('models/bruises', image, loadModelBruises)
-  style1 = ml5.styleTransfer('models/hennessy_zoom', image, loadModelHennessyZoom)
-  style2 = ml5.styleTransfer('models/minard_immigration', image, loadModelMinardImmigration)
-  style3 = ml5.styleTransfer('models/tufte_flatland', image, loadModelTufteFlatland)
-  style4 = ml5.styleTransfer('models/scrapbook1_glupi', image, loadModelScrapbook1)
-  style5 = ml5.styleTransfer('models/scrapbook2_glupi', image, loadModelScrapbook2)
-  style6 = ml5.styleTransfer('models/moma_glupi', image, loadModelMomaGlupi)
-  style7 = ml5.styleTransfer('models/minard_cattle', image, loadModelMinardCattle)
+  style0 = ml5.styleTransfer('../models/bruises', image, loadModelBruises)
+  style1 = ml5.styleTransfer('../models/hennessy_zoom', image, loadModelHennessyZoom)
+  style2 = ml5.styleTransfer('../models/minard_immigration', image, loadModelMinardImmigration)
+  style3 = ml5.styleTransfer('../models/tufte_flatland', image, loadModelTufteFlatland)
+  style4 = ml5.styleTransfer('../models/scrapbook1_glupi', image, loadModelScrapbook1)
+  style5 = ml5.styleTransfer('../models/scrapbook2_glupi', image, loadModelScrapbook2)
+  style6 = ml5.styleTransfer('../models/moma_glupi', image, loadModelMomaGlupi)
+  style7 = ml5.styleTransfer('../models/minard_cattle', image, loadModelMinardCattle)
 
   console.log('got style')
   modelReady = false;
@@ -324,7 +324,7 @@ function setStyle(str) {
     return
   }
   context.globalCompositeOperation = "source-out";
-  currentModel = 'models/'+str
+  currentModel = '../models/'+str
   style = ml5.styleTransfer(currentModel, image, loadedModel)
   console.log('got style')
   modelReady = false;
