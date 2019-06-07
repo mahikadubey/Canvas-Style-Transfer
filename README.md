@@ -12,9 +12,9 @@ Researcher, Creative Coding Lab
 University of California Santa Cruz    
 jtotto@ucsc.edu    
 
-Angus G. Forbes
-Director, Creative Coding Lab
-University of California Santa Cruz
+Angus G. Forbes    
+Director, Creative Coding Lab        
+University of California Santa Cruz        
 angus@ucsc.edu    
 
 
