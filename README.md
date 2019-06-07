@@ -22,10 +22,7 @@ Below is a video/gif demonstrating usage of the magic marker implementation, as 
 ### Implementation Details
 This application uses scaled down images to avoid crashing the browser (images smaller than 2400 by 2400 pixels work best as we scale down by a factor of 3). Upon selection of a brush, a hidden canvas is processed using the entire image as the content for the selected style. Brush interactions effectively remove pixels from the top canvas to reveal the transformed image content in the 'painted' areas, such that the top canvas layer acts like a mask to the styled image on the canvas below. The 'Apply Brush' button combines the result of the masked style canvas image, and 'flattens' the canvases to reset the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the top canvas layer by reversing the pixel removal. 
 
-### How to run
-- Move into the `Magic-Marker/` directory 
-- Run a local server using `python -m http.server` (if using Python 2, use the command `python -m SimpleHTTPServer` instead)
-- Open http://localhost:8000 in a browser  
+
 
 
 
@@ -47,13 +44,9 @@ Below is a video/gif demonstrating the usage of the patch painting application, 
 ### Implementation Details
 This application uses brush selections to send portions of an image to ml5 for style transfer to be completed piece-wise across the canvas. A preview canvas is layered on top of the image canvas to hold pixel data for applied style patches. The 'Apply Brush' button flattens these changes and sticks them to the underlying image content. If changes have not been applied, the 'Clear Brush' button resets the preview canvas layer by clearing the changes. 
 
-### How to run
-- Move into the `Compositing-Stamps` directory
+## How to run locally
+- Clone the repository and open a terminal in the main directory
 - Run a local server using `python -m http.server` (if using Python 2, use `python -m SimpleHTTPServer` instead)
 - Open http://localhost:8000 in a browser 
+- You will have the option to choose between Magic Markers or Compositing Stamps
 
-
-## Resources 
-- ml5.js - https://ml5js.org/
-- D3.js - https://d3js.org/
-- Default Cat Image from https://www.pexels.com/photo/cat-whiskers-kitty-tabby-20787/
