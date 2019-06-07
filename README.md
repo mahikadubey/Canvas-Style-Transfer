@@ -2,20 +2,23 @@
 Brush-based interactive canvas for custom style transfer. We have two different modes of the application that can be loaded from each folder in this repository. Our style transfer applications use pre-trained models from ml5.js and brush interactions supported by D3 in novel ways, giving users a new way to creatively interact with images of their choice, and eliciting new thoughts on the process of art creation. The application is accessible at https://mahikadubey.github.io/Canvas-Style-Transfer/. 
 
 Contact Information:  
-Mahika Dubey
-Researcher, Creative Coding Lab 
-University of California Santa Cruz    
+Mahika Dubey     
+Graduate Researcher     
+Creative Coding Lab     
+University of California Santa Cruz         
 mahika@ucsc.edu  
 
-Jasmine Otto  
-Researcher, Creative Coding Lab     
+Jasmine Otto    
+Graduate Researcher      
+Creative Coding Lab     
 University of California Santa Cruz    
 jtotto@ucsc.edu    
 
 Angus G. Forbes    
-Director, Creative Coding Lab        
-University of California Santa Cruz        
-angus@ucsc.edu    
+Assistant Professor and Lab Director   
+Creative Coding Lab         
+University of California Santa Cruz         
+angus@ucsc.edu     
 
 
 ## Magic Marker  
